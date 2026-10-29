@@ -1,0 +1,156 @@
+@keyframes loader-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+@keyframes loader-exit {
+  0%,
+  80% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+.site-loader {
+  animation: loader-exit 0.95s var(--ease) both;
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes float-card {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) rotate(-10deg);
+  }
+  50% {
+    transform: translate(-50%, -53%) rotate(-8deg);
+  }
+}
+@keyframes float-caption {
+  0%,
+  100% {
+    transform: translateY(0) rotate(7deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(5deg);
+  }
+}
+@keyframes hero-enter {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes ring-turn {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+.hero-copy {
+  animation: hero-enter 1.1s var(--ease) both;
+}
+.hero-visual {
+  animation: hero-enter 1.4s var(--ease) both;
+}
+.brand-card {
+  animation: float-card 7s ease-in-out infinite;
+}
+.floating-caption {
+  animation: float-caption 6s ease-in-out infinite;
+}
+.orbit-one {
+  animation: ring-turn 65s linear infinite;
+}
+.reveal {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 0.7s var(--ease),
+    transform 0.7s var(--ease);
+}
+.reveal.visible {
+  animation: hero-enter 0.7s var(--ease) both;
+}
+.service-row h3,
+.arrow-circle,
+.arrow-circle svg,
+.text-link,
+.big-arrow,
+.agency-button {
+  transition:
+    transform var(--duration) var(--ease),
+    color var(--duration),
+    background var(--duration),
+    border-color var(--duration);
+}
+.project-image img {
+  transition: transform 0.8s var(--ease);
+}
+.project-overlay {
+  transition:
+    opacity var(--duration),
+    transform var(--duration);
+}
+.project-card:hover img {
+  transform: scale(1.035);
+}
+.project-card:hover .project-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+.agency-button:hover .arrow-plain {
+  transform: translate(2px, -2px);
+}
+.arrow-plain {
+  transition: transform var(--duration) var(--ease);
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *:before,
+  *:after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+  .marquee-track {
+    animation: none;
+  }
+  .loader-line:after {
+    transform: scaleX(1);
+  }
+}
+@media (hover: none) {
+  .project-overlay {
+    opacity: 1;
+    transform: none;
+  }
+  .project-card:hover img {
+    transform: none;
+  }
+  .service-row:hover h3 {
+    transform: none;
+  }
+}
+.project-card:hover .project-overlay .arrow-circle {
+  background: var(--soft);
+  color: var(--background);
+  border-color: var(--soft);
+}
